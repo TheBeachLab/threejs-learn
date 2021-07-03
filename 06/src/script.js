@@ -30,8 +30,8 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 
-// time delta
-var time = Date.now()
+// clock
+const clock = new THREE.Clock()
 
 
 // animations
@@ -39,15 +39,13 @@ var time = Date.now()
 const tick = () => {
     //console.log('tick')
 
-    // time
-    const currentTime = Date.now()
-    const deltaTime = currentTime - time
-    time = currentTime
-    console.log(deltaTime)
+    // clock
+    const elapsed = clock.getElapsedTime()
+    console.log(elapsed) // in seconds
 
     // update objects
-    //mesh.position.x += 0.01
-    mesh.rotation.y += 0.001 * deltaTime // cube spins at same speed independent of framerate
+
+    mesh.rotation.y = elapsed * Math.PI * 2 // cube spins at same speed independent of framerate
 
     // render
     renderer.render(scene, camera)
