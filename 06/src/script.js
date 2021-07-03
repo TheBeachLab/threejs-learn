@@ -41,11 +41,12 @@ const tick = () => {
 
     // clock
     const elapsed = clock.getElapsedTime()
-    console.log(elapsed) // in seconds
+    //console.log(elapsed) // in seconds
 
     // update objects
 
-    mesh.rotation.y = elapsed * Math.PI * 2 // cube spins at same speed independent of framerate
+    mesh.position.y = Math.sin(elapsed) // cube spins at same speed independent of framerate
+    mesh.position.x = Math.cos(elapsed)
 
     // render
     renderer.render(scene, camera)
