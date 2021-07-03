@@ -48,6 +48,8 @@ const tick = () => {
     mesh.position.y = Math.sin(elapsed) // cube spins at same speed independent of framerate
     mesh.position.x = Math.cos(elapsed)
 
+    camera.lookAt(mesh.position)
+
     // render
     renderer.render(scene, camera)
 
