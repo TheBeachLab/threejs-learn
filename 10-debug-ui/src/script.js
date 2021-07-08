@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import * as dat from 'dat.gui'
 
 // debug
-const gui = new dat.GUI({ closed: true })
+const gui = new dat.GUI({ closed: true, width: 400 })
 gui.hide()
 const parameters = {
     color: 0xff0000,
