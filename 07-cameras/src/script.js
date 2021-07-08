@@ -2,8 +2,13 @@ import './style.css'
 import * as THREE from 'three'
 
 // cursor
+const cursor = {
+    x: 0,
+    y: 0
+}
 window.addEventListener('mousemove', (ev) => {
-    console.log(ev.clientX)
+    cursor.x = ev.clientX / sizes.width
+    console.log(cursor.x)
 })
 
 /**
