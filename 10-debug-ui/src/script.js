@@ -32,6 +32,10 @@ gui
     .step(0.01)
     .name('x coord')
 
+gui.add(mesh, 'visible')
+gui.add(mesh.material, 'wireframe')
+
+
 
 /**
  * Sizes
