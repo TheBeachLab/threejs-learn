@@ -7,8 +7,9 @@ const cursor = {
     y: 0
 }
 window.addEventListener('mousemove', (ev) => {
-    cursor.x = ev.clientX / sizes.width - 0.5
-    console.log(cursor.x)
+    cursor.x = ev.clientX / sizes.width - 0.
+    cursor.y = ev.clientY / sizes.height - 0.5
+    console.log(cursor.y)
 })
 
 /**
