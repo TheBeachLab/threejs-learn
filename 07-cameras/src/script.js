@@ -10,7 +10,7 @@ const canvas = document.querySelector('canvas.webgl')
 // Sizes
 const sizes = {
     width: 800,
-    height: 600
+    height: 800
 }
 
 // Scene
