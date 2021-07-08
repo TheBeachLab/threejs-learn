@@ -6,6 +6,7 @@ import * as dat from 'dat.gui'
 
 // debug
 const gui = new dat.GUI()
+gui.hide()
 const parameters = {
     color: 0xff0000,
     spin: () => {
