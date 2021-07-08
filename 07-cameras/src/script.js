@@ -10,7 +10,7 @@ const canvas = document.querySelector('canvas.webgl')
 // Sizes
 const sizes = {
     width: 800,
-    height: 800
+    height: 600
 }
 
 // Scene
@@ -25,7 +25,8 @@ scene.add(mesh)
 
 // Camera
 // const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 100)
-const camera = new THREE.OrthographicCamera(-1, 1, 1, -1)
+const aspectRatio = sizes.width / sizes.height
+const camera = new THREE.OrthographicCamera(-1 * aspectRatio, 1 * aspectRatio, 1, -1, 0.1, 100)
 camera.position.x = 2
 camera.position.y = 2
 camera.position.z = 2
