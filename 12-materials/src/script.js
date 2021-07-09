@@ -62,28 +62,49 @@ gradienttexture.magFilter = THREE.NearestFilter // both must be set to work
 
 // the best material
 const material = new THREE.MeshStandardMaterial()
-cpanel.add(material, 'metalness').min(0).max(1).step(0.001)
-cpanel.add(material, 'roughness').min(0).max(1).step(0.001)
+// cpanel.add(material, 'metalness').min(0).max(1).step(0.001)
+// cpanel.add(material, 'roughness').min(0).max(1).step(0.001)
+cpanel.add(material, 'displacementScale').min(0).max(0.1).step(0.001)
+
 
 // material.metalness = 0.6
+material.map = doorcolortexture
+material.aoMap = doorambientOcclusiontexture
+material.aoMapIntensity = 1
+material.displacementScale = 0.03
+material.displacementMap = doorheighttexture
+material.metalnessMap = doormetalnesstexture
+material.roughnessMap = doorroughnesstexture
+material.normalMap = doornormaltexture
+material.normalScale.set(1.5, 1.5)
+material.alphaMap = dooralphatexture
+material.transparent = true
 
 
 const sphere = new THREE.Mesh(
-    new THREE.SphereGeometry(0.5, 16, 16),
+    new THREE.SphereGeometry(0.5, 64, 64),
     material
 )
 
 sphere.position.x = -2
 
 const plane = new THREE.Mesh(
-    new THREE.PlaneGeometry(1, 1),
+    new THREE.PlaneGeometry(1, 1, 64, 64),
     material
 )
+
+
+
 
 const torus = new THREE.Mesh(
     new THREE.TorusGeometry(1, 0.2, 16, 16),
     material
 )
+
+plane.geometry.setAttribute('uv2', new THREE.BufferAttribute(plane.geometry.attributes.uv.array, 2))
+sphere.geometry.setAttribute('uv2', new THREE.BufferAttribute(sphere.geometry.attributes.uv.array, 2))
+torus.geometry.setAttribute('uv2', new THREE.BufferAttribute(torus.geometry.attributes.uv.array, 2))
+
 
 torus.position.x = 2
 
@@ -152,11 +173,11 @@ const tick = () => {
     const elapsedTime = clock.getElapsedTime()
 
     // update objects
-    plane.rotation.y = 0.1 * elapsedTime
+    //plane.rotation.y = 0.1 * elapsedTime
     sphere.rotation.y = 0.1 * elapsedTime
     torus.rotation.y = 0.1 * elapsedTime
 
-    plane.rotation.x = 0.15 * elapsedTime
+    // plane.rotation.x = 0.15 * elapsedTime
     sphere.rotation.x = 0.15 * elapsedTime
     torus.rotation.x = 0.15 * elapsedTime
 
