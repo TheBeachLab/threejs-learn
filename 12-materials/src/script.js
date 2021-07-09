@@ -53,8 +53,13 @@ gradienttexture.magFilter = THREE.NearestFilter // both must be set to work
 // material.shininess = 100
 // material.specular = new THREE.Color(0xff0000) // color of the specular reflection
 
-const material = new THREE.MeshToonMaterial()
-material.gradientMap = gradienttexture
+// const material = new THREE.MeshToonMaterial()
+// material.gradientMap = gradienttexture
+
+// the best material
+const material = new THREE.MeshStandardMaterial()
+material.metalness = 0.6
+
 
 const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(0.5, 16, 16),
