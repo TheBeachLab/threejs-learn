@@ -29,7 +29,7 @@ const metalnesstexture = textureLoader.load('/textures/door/metalness.jpg')
 colortexture.repeat.x = 2
 colortexture.repeat.y = 3
 // activate wrapping
-colortexture.wrapS = THREE.RepeatWrapping
+colortexture.wrapS = THREE.MirroredRepeatWrapping
 colortexture.wrapT = THREE.RepeatWrapping
 
 /**
