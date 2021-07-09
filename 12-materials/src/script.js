@@ -23,7 +23,7 @@ const doorroughnesstexture = textureLoader.load('textures/door/roughness.jpg')
 const doornormaltexture = textureLoader.load('textures/door/normal.jpg')
 const doorheighttexture = textureLoader.load('textures/door/height.jpg')
 const doorambientOcclusiontexture = textureLoader.load('textures/door/ambientOcclusion.jpg')
-const matcaptexture = textureLoader.load('/textures/matcaps/1.png')
+const matcaptexture = textureLoader.load('/textures/matcaps/3.png')
 const gradienttexture = textureLoader.load('/textures/gradients/3.jpg')
 
 // objects
