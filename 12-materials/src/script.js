@@ -25,6 +25,9 @@ const doorheighttexture = textureLoader.load('textures/door/height.jpg')
 const doorambientOcclusiontexture = textureLoader.load('textures/door/ambientOcclusion.jpg')
 const matcaptexture = textureLoader.load('/textures/matcaps/8.png')
 const gradienttexture = textureLoader.load('/textures/gradients/3.jpg')
+// gradienttexture.generateMipmaps = false // does not fix 
+gradienttexture.minFilter = THREE.NearestFilter
+gradienttexture.magFilter = THREE.NearestFilter // both must be set to work 
 
 // objects
 // const material = new THREE.MeshBasicMaterial()
@@ -46,9 +49,12 @@ const gradienttexture = textureLoader.load('/textures/gradients/3.jpg')
 
 // const material = new THREE.MeshLambertMaterial()
 
-const material = new THREE.MeshPhongMaterial()
-material.shininess = 100
-material.specular = new THREE.Color(0xff0000)
+// const material = new THREE.MeshPhongMaterial()
+// material.shininess = 100
+// material.specular = new THREE.Color(0xff0000) // color of the specular reflection
+
+const material = new THREE.MeshToonMaterial()
+material.gradientMap = gradienttexture
 
 const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(0.5, 16, 16),
