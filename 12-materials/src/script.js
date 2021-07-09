@@ -86,6 +86,15 @@ const clock = new THREE.Clock()
 const tick = () => {
     const elapsedTime = clock.getElapsedTime()
 
+    // update objects
+    plane.rotation.y = 0.1 * elapsedTime
+    sphere.rotation.y = 0.1 * elapsedTime
+    torus.rotation.y = 0.1 * elapsedTime
+
+    plane.rotation.x = 0.15 * elapsedTime
+    sphere.rotation.x = 0.15 * elapsedTime
+    torus.rotation.x = 0.15 * elapsedTime
+
     // Update controls
     controls.update()
 
