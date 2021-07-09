@@ -36,7 +36,11 @@ const gradienttexture = textureLoader.load('/textures/gradients/3.jpg')
 // material.alphaMap = dooralphatexture
 // material.side = DoubleSide
 
-const material = new THREE.MeshNormalMaterial()
+// const material = new THREE.MeshNormalMaterial()
+// material.flatShading = true
+
+const material = new THREE.MeshMatcapMaterial()
+material.matcap = matcaptexture
 
 const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(0.5, 16, 16),
