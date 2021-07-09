@@ -19,7 +19,7 @@ loadingManager.onError = () => {
 
 const textureLoader = new THREE.TextureLoader(loadingManager) // only once
 // then load all the textures you need
-const colortexture = textureLoader.load('/textures/door/color.jpg')
+const colortexture = textureLoader.load('/textures/minecraft.png')
 const alphatexture = textureLoader.load('/textures/door/alpha.jpg')
 const heighttexture = textureLoader.load('/textures/door/height.jpg')
 const ambientOcclusiontexture = textureLoader.load('/textures/door/ambientOcclusion.jpg')
@@ -40,6 +40,8 @@ colortexture.center.x = 0.5
 colortexture.center.y = 0.
 // change minification filter
 colortexture.minFilter = THREE.NearestFilter
+// change magnification filter
+colortexture.magFilter = THREE.NearestFilter
 
 
 /**
