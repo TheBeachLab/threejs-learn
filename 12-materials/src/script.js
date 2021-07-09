@@ -2,6 +2,7 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { DoubleSide } from 'three'
+import * as dat from 'dat.gui'
 
 /**
  * Base
@@ -11,6 +12,9 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
+
+// debug 
+const cpanel = new dat.GUI()
 
 // textures
 
@@ -58,7 +62,10 @@ gradienttexture.magFilter = THREE.NearestFilter // both must be set to work
 
 // the best material
 const material = new THREE.MeshStandardMaterial()
-material.metalness = 0.6
+cpanel.add(material, 'metalness').min(0).max(1).step(0.001)
+cpanel.add(material, 'roughness').min(0).max(1).step(0.001)
+
+// material.metalness = 0.6
 
 
 const sphere = new THREE.Mesh(
