@@ -1,6 +1,7 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { DoubleSide } from 'three'
 
 /**
  * Base
@@ -26,9 +27,16 @@ const matcaptexture = textureLoader.load('/textures/matcaps/1.png')
 const gradienttexture = textureLoader.load('/textures/gradients/3.jpg')
 
 // objects
-const material = new THREE.MeshBasicMaterial({
-    map: doorcolortexture
-})
+// const material = new THREE.MeshBasicMaterial()
+
+// material.map = doorcolortexture
+// material.transparent = true
+//material.opacity = 0.5
+// material.wireframe = true
+// material.alphaMap = dooralphatexture
+// material.side = DoubleSide
+
+const material = new THREE.MeshNormalMaterial()
 
 const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(0.5, 16, 16),
