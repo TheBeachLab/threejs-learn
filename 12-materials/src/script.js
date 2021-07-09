@@ -33,6 +33,21 @@ const torus = new THREE.Mesh(
 torus.position.x = 2
 
 scene.add(sphere, plane, torus)
+
+// textures
+
+const textureLoader = new THREE.TextureLoader()
+
+const doorcolortexture = textureLoader.load('textures/door/color.jpg')
+const dooralphatexture = textureLoader.load('textures/door/alpha.jpg')
+const doormetalnesstexture = textureLoader.load('textures/door/metalness.jpg')
+const doorroughnesstexture = textureLoader.load('textures/door/roughness.jpg')
+const doornormaltexture = textureLoader.load('textures/door/normal.jpg')
+const doorheighttexture = textureLoader.load('textures/door/height.jpg')
+const doorambientOcclusiontexture = textureLoader.load('textures/door/ambientOcclusion.jpg')
+const matcaptexture = textureLoader.load('/textures/matcaps/1.png')
+const gradienttexture = textureLoader.load('/textures/gradients/3.jpg')
+
 /**
  * Sizes
  */
