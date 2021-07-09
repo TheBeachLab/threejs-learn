@@ -31,6 +31,8 @@ colortexture.repeat.y = 3
 // activate wrapping
 colortexture.wrapS = THREE.MirroredRepeatWrapping
 colortexture.wrapT = THREE.RepeatWrapping
+//offset
+colortexture.offset.x = 0.5
 
 /**
  * Base
