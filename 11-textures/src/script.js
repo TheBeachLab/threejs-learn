@@ -3,21 +3,10 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 // texture
-const textureLoader = new THREE.TextureLoader() // only once
+const loadingManager = new THREE.LoadingManager()
+const textureLoader = new THREE.TextureLoader(loadingManager) // only once
 // then load all the textures you need
-const texture = textureLoader.load(
-    '/textures/door/color.jpg',
-    () => {
-        console.log('loaded')
-    },
-    () => {
-        console.log('progress')
-    },
-    () => {
-        console.log('error')
-    }
-
-)
+const texture = textureLoader.load('/textures/door/color.jpg')
 
 
 /**
