@@ -19,6 +19,7 @@ const cpanel = new dat.GUI()
 // textures
 
 const textureLoader = new THREE.TextureLoader()
+const cubetextureloader = new THREE.CubeTextureLoader()
 
 const doorcolortexture = textureLoader.load('textures/door/color.jpg')
 const dooralphatexture = textureLoader.load('textures/door/alpha.jpg')
@@ -32,6 +33,15 @@ const gradienttexture = textureLoader.load('/textures/gradients/3.jpg')
 // gradienttexture.generateMipmaps = false // does not fix 
 gradienttexture.minFilter = THREE.NearestFilter
 gradienttexture.magFilter = THREE.NearestFilter // both must be set to work 
+
+const environmentMapTexture = cubetextureloader.load([
+    '/textures/environmentMaps/3/nx.jpg',
+    '/textures/environmentMaps/3/py.jpg',
+    '/textures/environmentMaps/3/ny.jpg',
+    '/textures/environmentMaps/3/px.jpg',
+    '/textures/environmentMaps/3/pz.jpg',
+    '/textures/environmentMaps/3/nz.jpg']
+)
 
 // objects
 // const material = new THREE.MeshBasicMaterial()
@@ -61,24 +71,31 @@ gradienttexture.magFilter = THREE.NearestFilter // both must be set to work
 // material.gradientMap = gradienttexture
 
 // the best material
-const material = new THREE.MeshStandardMaterial()
-// cpanel.add(material, 'metalness').min(0).max(1).step(0.001)
-// cpanel.add(material, 'roughness').min(0).max(1).step(0.001)
-cpanel.add(material, 'displacementScale').min(0).max(0.1).step(0.001)
+// const material = new THREE.MeshStandardMaterial()
+// cpanel.add(material, 'displacementScale').min(0).max(0.1).step(0.001)
 
 
 // material.metalness = 0.6
-material.map = doorcolortexture
-material.aoMap = doorambientOcclusiontexture
-material.aoMapIntensity = 1
-material.displacementScale = 0.03
-material.displacementMap = doorheighttexture
-material.metalnessMap = doormetalnesstexture
-material.roughnessMap = doorroughnesstexture
-material.normalMap = doornormaltexture
-material.normalScale.set(1.5, 1.5)
-material.alphaMap = dooralphatexture
-material.transparent = true
+// material.map = doorcolortexture
+// material.aoMap = doorambientOcclusiontexture
+// material.aoMapIntensity = 1
+// material.displacementScale = 0.03
+// material.displacementMap = doorheighttexture
+// material.metalnessMap = doormetalnesstexture
+// material.roughnessMap = doorroughnesstexture
+// material.normalMap = doornormaltexture
+// material.normalScale.set(1.5, 1.5)
+// material.alphaMap = dooralphatexture
+// material.transparent = true
+
+const material = new THREE.MeshStandardMaterial()
+material.metalness = 0.7
+material.roughness = 0.2
+material.envMap = environmentMapTexture
+
+// material gui
+cpanel.add(material, 'metalness').min(0).max(1).step(0.001)
+cpanel.add(material, 'roughness').min(0).max(1).step(0.001)
 
 
 const sphere = new THREE.Mesh(
