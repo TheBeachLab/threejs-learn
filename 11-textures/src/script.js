@@ -39,6 +39,7 @@ colortexture.rotation = Math.PI / 8 // CCW about bottom left corner
 colortexture.center.x = 0.5
 colortexture.center.y = 0.
 // change minification filter
+colortexture.generateMipmaps = false
 colortexture.minFilter = THREE.NearestFilter
 // change magnification filter
 colortexture.magFilter = THREE.NearestFilter
