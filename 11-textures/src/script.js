@@ -33,6 +33,9 @@ colortexture.wrapS = THREE.MirroredRepeatWrapping
 colortexture.wrapT = THREE.RepeatWrapping
 //offset
 colortexture.offset.x = 0.5
+//rotation
+colortexture.rotation = Math.PI / 8 // CCW about bottom left corner
+
 
 /**
  * Base
