@@ -37,7 +37,9 @@ colortexture.offset.x = 0.5
 colortexture.rotation = Math.PI / 8 // CCW about bottom left corner
 // set origin of uv
 colortexture.center.x = 0.5
-colortexture.center.y = 0.5
+colortexture.center.y = 0.
+// change minification filter
+colortexture.minFilter = THREE.NearestFilter
 
 
 /**
