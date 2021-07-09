@@ -11,29 +11,6 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
-// objects
-const material = new THREE.MeshBasicMaterial()
-
-const sphere = new THREE.Mesh(
-    new THREE.SphereGeometry(0.5, 16, 16),
-    material
-)
-
-sphere.position.x = -2
-
-const plane = new THREE.Mesh(
-    new THREE.PlaneGeometry(1, 1)
-)
-
-const torus = new THREE.Mesh(
-    new THREE.TorusGeometry(1, 0.2, 16, 16),
-    material
-)
-
-torus.position.x = 2
-
-scene.add(sphere, plane, torus)
-
 // textures
 
 const textureLoader = new THREE.TextureLoader()
@@ -47,6 +24,34 @@ const doorheighttexture = textureLoader.load('textures/door/height.jpg')
 const doorambientOcclusiontexture = textureLoader.load('textures/door/ambientOcclusion.jpg')
 const matcaptexture = textureLoader.load('/textures/matcaps/1.png')
 const gradienttexture = textureLoader.load('/textures/gradients/3.jpg')
+
+// objects
+const material = new THREE.MeshBasicMaterial({
+    map: doorcolortexture
+})
+
+const sphere = new THREE.Mesh(
+    new THREE.SphereGeometry(0.5, 16, 16),
+    material
+)
+
+sphere.position.x = -2
+
+const plane = new THREE.Mesh(
+    new THREE.PlaneGeometry(1, 1),
+    material
+)
+
+const torus = new THREE.Mesh(
+    new THREE.TorusGeometry(1, 0.2, 16, 16),
+    material
+)
+
+torus.position.x = 2
+
+scene.add(sphere, plane, torus)
+
+
 
 /**
  * Sizes
@@ -74,7 +79,7 @@ window.addEventListener('resize', () => {
  * Camera
  */
 // Base camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+const camera = new THREE.PerspectiveCamera(120, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 1
 camera.position.y = 1
 camera.position.z = 2
