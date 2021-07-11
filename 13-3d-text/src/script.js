@@ -28,21 +28,32 @@ fontLoader.load(
                 font: font,
                 size: 0.3,
                 height: 0.2,
-                curveSegments: 12,
+                curveSegments: 4,
                 bevelEnabled: true,
                 bevelSize: 0.02,
                 bevelThickness: 0.03,
                 bevelOffset: 0,
-                bevelSegments: 5
+                bevelSegments: 3
             }
 
         )
+        textGeometry.computeBoundingBox() // calculate the bounding box
+        // console.log(textGeometry.boundingBox)
+        textGeometry.translate(
+            -textGeometry.boundingBox.max.x / 2,
+            -textGeometry.boundingBox.max.y / 2,
+            -textGeometry.boundingBox.max.z / 2,
+        )
         const textMaterial = new THREE.MeshBasicMaterial()
+        textMaterial.wireframe = true
         const text = new THREE.Mesh(textGeometry, textMaterial)
         scene.add(text)
     }
 )
 
+// axis helper
+const axisHelper = new THREE.AxesHelper()
+scene.add(axisHelper)
 
 /**
  * Textures
