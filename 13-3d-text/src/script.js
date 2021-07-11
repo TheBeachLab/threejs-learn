@@ -15,20 +15,41 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
+// fonts loader
+
+const fontLoader = new THREE.FontLoader()
+fontLoader.load(
+    '/fonts/helvetiker_regular.typeface.json',
+    (font) => {
+        //console.log('font ok')
+        const textGeometry = new THREE.TextGeometry(
+            'Hello TBL',
+            {
+                font: font,
+                size: 0.3,
+                height: 0.2,
+                curveSegments: 12,
+                bevelEnabled: true,
+                bevelSize: 0.02,
+                bevelThickness: 0.03,
+                bevelOffset: 0,
+                bevelSegments: 5
+            }
+
+        )
+        const textMaterial = new THREE.MeshBasicMaterial()
+        const text = new THREE.Mesh(textGeometry, textMaterial)
+        scene.add(text)
+    }
+)
+
+
 /**
  * Textures
  */
 const textureLoader = new THREE.TextureLoader()
 
-/**
- * Object
- */
-const cube = new THREE.Mesh(
-    new THREE.BoxGeometry(1, 1, 1),
-    new THREE.MeshBasicMaterial()
-)
 
-scene.add(cube)
 
 /**
  * Sizes
@@ -38,8 +59,7 @@ const sizes = {
     height: window.innerHeight
 }
 
-window.addEventListener('resize', () =>
-{
+window.addEventListener('resize', () => {
     // Update sizes
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
@@ -81,8 +101,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  */
 const clock = new THREE.Clock()
 
-const tick = () =>
-{
+const tick = () => {
     const elapsedTime = clock.getElapsedTime()
 
     // Update controls
