@@ -59,7 +59,8 @@ fontLoader.load(
     }
 )
 
-// donuts
+// donuts 
+console.time('donuts') // benchmark
 for (var i = 0; i < 100; i++) {
     const donutGeometry = new THREE.TorusGeometry(0.3, 0.2, 20, 45)
     const donutMaterial = new THREE.MeshMatcapMaterial()
@@ -76,6 +77,7 @@ for (var i = 0; i < 100; i++) {
     donut.scale.set(scale, scale, scale)
     scene.add(donut)
 }
+console.timeEnd('donuts')
 
 // axis helper
 const axisHelper = new THREE.AxesHelper()
