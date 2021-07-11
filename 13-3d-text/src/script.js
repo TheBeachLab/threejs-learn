@@ -37,13 +37,14 @@ fontLoader.load(
             }
 
         )
-        textGeometry.computeBoundingBox() // calculate the bounding box
-        // console.log(textGeometry.boundingBox)
-        textGeometry.translate(
-            -textGeometry.boundingBox.max.x / 2,
-            -textGeometry.boundingBox.max.y / 2,
-            -textGeometry.boundingBox.max.z / 2,
-        )
+        // textGeometry.computeBoundingBox() // calculate the bounding box
+        // // console.log(textGeometry.boundingBox)
+        // textGeometry.translate( // not exactly the center
+        //     -textGeometry.boundingBox.max.x / 2,
+        //     -textGeometry.boundingBox.max.y / 2,
+        //     -textGeometry.boundingBox.max.z / 2,
+        // )
+        textGeometry.center()
         const textMaterial = new THREE.MeshBasicMaterial()
         textMaterial.wireframe = true
         const text = new THREE.Mesh(textGeometry, textMaterial)
